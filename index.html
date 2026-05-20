@@ -30,7 +30,6 @@
       overflow-x: hidden;
     }
 
-    /* Noise grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -43,7 +42,6 @@
 
     .serif { font-family: 'DM Serif Display', serif; }
 
-    /* Fade-in on load */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -53,8 +51,9 @@
     .delay-2 { animation-delay: 0.22s; }
     .delay-3 { animation-delay: 0.34s; }
     .delay-4 { animation-delay: 0.46s; }
+    .delay-5 { animation-delay: 0.58s; }
+    .delay-6 { animation-delay: 0.70s; }
 
-    /* Accent line */
     .accent-line {
       display: inline-block;
       width: 32px;
@@ -64,7 +63,6 @@
       margin-right: 10px;
     }
 
-    /* Card */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -76,8 +74,6 @@
       border-color: rgba(200,240,96,0.3);
       box-shadow: 0 0 28px rgba(200,240,96,0.04);
     }
-
-    /* Corner accent on card hover */
     .card::after {
       content: '';
       position: absolute;
@@ -93,7 +89,6 @@
       border-left-color: var(--accent);
     }
 
-    /* Badge */
     .badge {
       display: inline-block;
       font-size: 10px;
@@ -107,7 +102,6 @@
       font-weight: 500;
     }
 
-    /* Links */
     .link-btn {
       display: inline-flex;
       align-items: center;
@@ -135,10 +129,8 @@
       background: rgba(200,240,96,0.12);
     }
 
-    /* Divider */
     hr { border: none; border-top: 1px solid var(--border); }
 
-    /* Nav dot */
     .nav-dot {
       width: 6px; height: 6px;
       background: var(--accent);
@@ -146,7 +138,6 @@
       display: inline-block;
     }
 
-    /* Footer glyph */
     .glyph {
       font-family: 'DM Serif Display', serif;
       font-style: italic;
@@ -154,7 +145,53 @@
       font-size: 13px;
     }
 
-    /* Scrollbar */
+    /* Project detail rows */
+    .detail-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+    .detail-value {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .detail-value.muted { color: var(--muted); }
+
+    /* Debug section */
+    .debug-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 2px 2px 0;
+      position: relative;
+    }
+
+    /* Learned section items */
+    .learned-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 16px;
+      align-items: baseline;
+    }
+    .learned-num {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -173,35 +210,37 @@
 
   <main class="relative z-10 max-w-3xl mx-auto px-6 md:px-8 py-20">
 
-    <!-- Hero / About -->
+    <!-- Hero -->
     <section class="mb-20 fade-up">
       <p class="text-xs tracking-widest uppercase mb-6" style="color: var(--muted);">
         <span class="accent-line"></span>About
       </p>
-      <h1 class="serif text-5xl md:text-6xl leading-tight mb-6" style="color: var(--text);">
-        Darshan
-      </h1>
-      <p class="text-base leading-relaxed mb-3" style="color: var(--muted); max-width: 520px;">
-        I ship product and write code. Not as a developer, but as a PM who uses AI to close the gap. The projects below are real tools I built end-to-end..
+      <h1 class="serif text-5xl md:text-6xl leading-tight mb-3" style="color: var(--text);">Darshan</h1>
+      <p class="text-xs tracking-widest uppercase mb-8" style="color: var(--accent);">Product Manager · AI Builder</p>
+      <p class="text-sm leading-relaxed mb-4" style="color: var(--muted); max-width: 540px;">
+        PM with 3+ years delivering 30+ custom software projects across varied industries. My core is client requirements, roadmaps, cross-functional coordination, and delivery.
+      </p>
+      <p class="text-sm leading-relaxed" style="color: var(--muted); max-width: 540px;">
+        I've expanded into the technical domain — capable of building and deploying full-stack apps with AI integration. Not to become a developer, but to think, prototype, and ship like one.
       </p>
     </section>
 
     <hr class="mb-20" />
 
     <!-- Projects -->
-    <section>
+    <section class="mb-20">
       <p class="text-xs tracking-widest uppercase mb-10 fade-up delay-1" style="color: var(--muted);">
         <span class="accent-line"></span>Projects
       </p>
 
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-10">
 
         <!-- Project 1 -->
         <article class="card p-7 md:p-8 fade-up delay-2">
-          <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
+          <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
             <div>
               <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Darsh Task Board</h2>
-              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">Kanban / Productivity</p>
+              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">Kanban · Productivity</p>
             </div>
             <div class="flex gap-2 pt-1 flex-wrap">
               <a href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener" class="link-btn primary">
@@ -215,9 +254,28 @@
             </div>
           </div>
 
-          <p class="text-sm leading-relaxed mb-6" style="color: var(--muted);">
-            Full-stack Kanban board with AI-powered task prioritization, drag-and-drop columns, subtask management, and per-user authentication. Built end-to-end from backend to UI.
-          </p>
+          <div class="mb-6">
+            <div class="detail-row">
+              <span class="detail-label">Problem</span>
+              <span class="detail-value muted">Teams lose alignment when task priority, status, and context live in different places. This board puts everything in one view — priority, due dates, subtasks, and AI recommendations.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Built</span>
+              <span class="detail-value muted">Full-stack Kanban with drag-and-drop columns, per-card detail modals (title, description, priority, due date, subtasks with progress tracking), overdue filtering, and AI-powered task prioritization via Groq that reads open tasks and recommends what to focus on first.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Decision</span>
+              <span class="detail-value muted">The card started as a simple title + due date. Mid-build I realized that wasn't enough to be genuinely useful — so I added a full detail modal with editable fields and subtask management. It took longer but made the tool worth using.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Tradeoff</span>
+              <span class="detail-value muted">Planned an activity log per card, deprioritized it. Adding it meant another database table and storage records — useful polish, not a new skill. Documented it as a planned feature and moved on.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Arch</span>
+              <span class="detail-value" style="color: var(--accent); font-size: 12px;">React → Supabase (PostgreSQL + RLS Auth) → Groq API. Per-user data isolation enforced at the database layer via Row Level Security policies.</span>
+            </div>
+          </div>
 
           <div class="flex flex-wrap gap-2">
             <span class="badge">React</span>
@@ -229,10 +287,10 @@
 
         <!-- Project 2 -->
         <article class="card p-7 md:p-8 fade-up delay-3">
-          <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
+          <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
             <div>
               <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Pulse</h2>
-              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">Feedback Tracker</p>
+              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">PM Tool · Feedback Analysis</p>
             </div>
             <div class="flex gap-2 pt-1 flex-wrap">
               <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener" class="link-btn primary">
@@ -246,9 +304,28 @@
             </div>
           </div>
 
-          <p class="text-sm leading-relaxed mb-6" style="color: var(--muted);">
-            PM feedback collection tool with AI analysis, multi-filter system, and a category breakdown dashboard for pattern detection. Designed around how product teams actually triage user feedback.
-          </p>
+          <div class="mb-6">
+            <div class="detail-row">
+              <span class="detail-label">Problem</span>
+              <span class="detail-value muted">Feedback from user interviews, support tickets, app reviews, and surveys lives in different places. PMs waste time aggregating instead of analyzing. Pulse centralizes it with structured categorization so patterns surface faster.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Built</span>
+              <span class="detail-value muted">Feedback collection app with source/category/sentiment tagging, status tracking (Open → In Progress → Addressed), category breakdown with visual bars, multi-filter system, and AI analysis via Groq that identifies top pain points, what users love, and what to prioritize fixing first.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Hardest</span>
+              <span class="detail-value muted">The multi-filter system with simultaneous criteria (sentiment + status + source + category) and the category breakdown component. Getting AND logic right across four independent filters took multiple iterations.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Next</span>
+              <span class="detail-value muted">Connect it to the Task Board so addressing a feedback item creates a linked task. Add a web survey form so feedback flows in directly rather than being entered manually.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Arch</span>
+              <span class="detail-value" style="color: var(--accent); font-size: 12px;">React → Supabase (PostgreSQL + RLS Auth) → Groq API. Same auth pattern as Task Board with per-user isolation.</span>
+            </div>
+          </div>
 
           <div class="flex flex-wrap gap-2">
             <span class="badge">React</span>
@@ -261,10 +338,71 @@
       </div>
     </section>
 
+    <hr class="mb-20" />
+
+    <!-- Debugging Story -->
+    <section class="mb-20 fade-up delay-4">
+      <p class="text-xs tracking-widest uppercase mb-10" style="color: var(--muted);">
+        <span class="accent-line"></span>A debugging story
+      </p>
+
+      <div class="debug-card p-7 md:p-8">
+        <p class="text-sm leading-relaxed mb-4" style="color: var(--muted);">
+          One night both apps were loading extremely slowly or not at all. I opened the browser console expecting a code error.
+        </p>
+        <p class="text-sm leading-relaxed mb-4" style="color: var(--muted);">
+          What I found instead: Supabase auth token refresh requests were timing out. The code was fine. The database was fine. After isolating variables — switching from Wi-Fi to mobile data — everything loaded instantly.
+        </p>
+        <p class="text-sm leading-relaxed mb-4" style="color: var(--muted);">
+          The issue was network routing. My Wi-Fi couldn't reliably reach Supabase's auth endpoints. Mobile data could.
+        </p>
+        <p class="text-sm leading-relaxed" style="color: var(--text);">
+          The fix wasn't in the code. It was understanding that the stack includes infrastructure I don't control, and knowing how to isolate which layer is failing.
+        </p>
+      </div>
+    </section>
+
+    <hr class="mb-20" />
+
+    <!-- What I Learned -->
+    <section class="mb-20 fade-up delay-5">
+      <p class="text-xs tracking-widest uppercase mb-10" style="color: var(--muted);">
+        <span class="accent-line"></span>What building taught me
+      </p>
+
+      <div class="flex flex-col gap-8">
+
+        <div class="learned-item">
+          <span class="learned-num">01</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">You don't need to write code to reason about it.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">Understanding what each line does — not memorizing syntax — is what makes AI-assisted building actually work.</p>
+          </div>
+        </div>
+
+        <div class="learned-item">
+          <span class="learned-num">02</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">The gap between a working prototype and a useful tool is product decisions, not technical ones.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">The Task Board's most important upgrade was a UX call — the detail modal — not a technical one.</p>
+          </div>
+        </div>
+
+        <div class="learned-item">
+          <span class="learned-num">03</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">Debugging taught me more than building.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">Every error forced me to understand one more layer of the stack — from React state to Supabase RLS to network infrastructure.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="mt-24 pt-8 fade-up delay-4" style="border-top: 1px solid var(--border);">
+    <footer class="pt-8 fade-up delay-6" style="border-top: 1px solid var(--border);">
       <div class="flex items-center justify-between flex-wrap gap-4">
-        <span class="glyph">Darshan - PM Tools</span>
+        <span class="glyph">Darshan — PM Tools</span>
         <a href="https://github.com/darshan2study-cpu" target="_blank" rel="noopener" class="link-btn text-xs">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           github.com/darshan2study-cpu
