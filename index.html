@@ -13,6 +13,7 @@
       --bg: #0c0c0e;
       --surface: #111114;
       --border: #222228;
+      --section-border: rgba(255,255,255,0.08);
       --text: #e8e8ec;
       --muted: #666672;
       --accent: #c8f060;
@@ -72,6 +73,19 @@
       margin-bottom: 3rem;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-label-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .section-index {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      opacity: 0.5;
     }
 
     .card {
@@ -156,17 +170,17 @@
       font-size: 13px;
     }
 
-    /* Section band backgrounds */
-    .section-band {
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      padding-left: calc(50vw - 50%);
-      padding-right: calc(50vw - 50%);
-    }
-    .band-alt {
+    /* Full-width alternate background — direct child of body */
+    .alt-band-wrapper {
+      width: 100%;
       background: var(--alt-bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--section-border);
+      border-bottom: 1px solid var(--section-border);
+    }
+
+    /* Section separator for default-bg sections */
+    .section-sep {
+      border-top: 1px solid var(--section-border);
     }
 
     /* Project detail rows */
@@ -193,32 +207,35 @@
     }
     .detail-value.muted { color: var(--muted); }
 
-    /* Arch flowchart */
-    .arch-flow {
+    /* Arch — inline pipeline, no wrapping branch tree */
+    .arch-pipeline {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
+      flex-wrap: wrap;
+      gap: 0;
       font-size: 11px;
+      row-gap: 6px;
+    }
+    .arch-node {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
     }
     .arch-box {
-      display: inline-block;
       padding: 3px 8px;
-      border: 1px solid rgba(200,240,96,0.25);
+      border: 1px solid rgba(200,240,96,0.22);
       border-radius: 2px;
       color: var(--accent);
       background: rgba(200,240,96,0.04);
       white-space: nowrap;
       letter-spacing: 0.03em;
     }
-    .arch-arrow {
+    .arch-sep {
       color: var(--muted);
-      font-size: 12px;
-    }
-    .arch-branch {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      padding: 0 6px;
+      font-size: 11px;
+      opacity: 0.5;
+      white-space: nowrap;
     }
 
     /* Debug section */
@@ -252,7 +269,7 @@
 <body>
 
   <!-- Nav -->
-  <nav class="relative z-10 flex items-center justify-between px-6 py-5 md:px-12" style="border-bottom: 1px solid var(--border);">
+  <nav class="relative z-10 flex items-center justify-between px-8 md:px-16 py-5" style="border-bottom: 1px solid var(--border);">
     <div class="flex items-center gap-3">
       <span class="nav-dot"></span>
       <span class="text-xs tracking-widest uppercase" style="color: var(--muted);">Darshan</span>
@@ -260,168 +277,164 @@
     <span class="text-xs tracking-widest uppercase" style="color: var(--muted);">Portfolio</span>
   </nav>
 
-  <main class="relative z-10 max-w-4xl mx-auto px-6 md:px-6">
-
-    <!-- Hero -->
-    <section class="py-24 mb-0 fade-up">
+  <!-- Hero — default bg -->
+  <div class="relative z-10">
+    <section class="max-w-5xl mx-auto px-8 md:px-16 py-24 fade-up">
       <p class="section-label">
-        <span class="accent-line"></span>About
+        <span class="section-label-left"><span class="accent-line"></span>About</span>
+        <span class="section-index">01</span>
       </p>
       <h1 class="serif text-5xl md:text-6xl leading-tight mb-3" style="color: var(--text);">Darshan</h1>
       <p class="text-xs tracking-widest uppercase mb-10" style="color: var(--accent);">Product Manager · AI Builder</p>
-      <p class="text-sm leading-relaxed mb-4" style="color: var(--muted); max-width: 560px;">
+      <p class="text-sm leading-relaxed mb-4" style="color: var(--muted); max-width: 680px;">
         The gap between product and engineering is where most projects slow down. That's where I excel.
       </p>
-      <p class="text-sm leading-relaxed mb-4" style="color: var(--muted); max-width: 560px;">
+      <p class="text-sm leading-relaxed mb-4" style="color: var(--muted); max-width: 680px;">
         Over 3+ years, I've delivered 30+ custom software projects managing requirements, roadmaps, cross-functional coordination, and end-to-end delivery.
       </p>
-      <p class="text-sm leading-relaxed" style="color: var(--muted); max-width: 560px;">
+      <p class="text-sm leading-relaxed" style="color: var(--muted); max-width: 680px;">
         I've also built and deployed full-stack apps with AI integration — not to become a developer, but to prototype fast, speak the language, and bridge the gap between product thinking and technical execution.
       </p>
     </section>
+  </div>
 
-    <!-- Projects — alt band -->
-    <div class="section-band band-alt">
-      <section class="max-w-4xl mx-auto px-6 md:px-6 py-24 fade-up delay-1">
-        <p class="section-label">
-          <span class="accent-line"></span>Projects
-        </p>
-
-        <div class="flex flex-col gap-10">
-
-          <!-- Project 1: Task Board -->
-          <article class="card p-7 md:p-8 fade-up delay-2">
-            <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
-              <div>
-                <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Task Board</h2>
-                <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">Kanban · Productivity</p>
-              </div>
-              <div class="flex gap-2 pt-1 flex-wrap">
-                <a href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener" class="link-btn primary">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/darshan2study-cpu/Task-Board" target="_blank" rel="noopener" class="link-btn">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-
-            <div class="mb-6">
-              <div class="detail-row">
-                <span class="detail-label">Problem</span>
-                <span class="detail-value muted">Teams lose alignment when task priority, status, and context live in different places. This board puts everything in one view — priority, due dates, subtasks, and AI recommendations.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Built</span>
-                <span class="detail-value muted">Full-stack Kanban with drag-and-drop columns, per-card detail modals (title, description, priority, due date, subtasks with progress tracking), overdue filtering, and AI-powered task prioritization via Groq that reads open tasks and recommends what to focus on first.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Improvements</span>
-                <span class="detail-value muted">Started with a simple title + due date card. Mid-build, realized that wasn't enough to be genuinely useful. Added a full detail modal — editable fields, description, subtasks with progress tracking. Took longer. Worth it.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Tradeoff</span>
-                <span class="detail-value muted">Planned an activity log per card, deprioritized it. Adding it meant another database table and storage records — useful polish, not a new skill. Documented it as a planned feature and moved on.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Arch</span>
-                <div class="detail-value">
-                  <div class="arch-flow">
-                    <span class="arch-box">React Frontend</span>
-                    <span class="arch-arrow">→</span>
-                    <span class="arch-box">Supabase Auth + RLS</span>
-                    <span class="arch-arrow">→</span>
-                    <div class="arch-branch">
-                      <span class="arch-box">PostgreSQL DB</span>
-                      <span class="arch-box">Groq API</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="badge">React</span>
-              <span class="badge">Supabase</span>
-              <span class="badge">Groq AI</span>
-              <span class="badge">Tailwind</span>
-            </div>
-          </article>
-
-          <!-- Project 2: Pulse -->
-          <article class="card p-7 md:p-8 fade-up delay-3">
-            <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
-              <div>
-                <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Pulse</h2>
-                <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">PM Tool · Feedback Analysis</p>
-              </div>
-              <div class="flex gap-2 pt-1 flex-wrap">
-                <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener" class="link-btn primary">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Live Demo
-                </a>
-                <a href="https://github.com/darshan2study-cpu/Feedback-tracker" target="_blank" rel="noopener" class="link-btn">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                  GitHub
-                </a>
-              </div>
-            </div>
-
-            <div class="mb-6">
-              <div class="detail-row">
-                <span class="detail-label">Problem</span>
-                <span class="detail-value muted">Feedback from user interviews, support tickets, app reviews, and surveys lives in different places. PMs waste time aggregating instead of analyzing. Pulse centralizes it with structured categorization so patterns surface faster.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Built</span>
-                <span class="detail-value muted">Feedback collection app with source/category/sentiment tagging, status tracking (Open → In Progress → Addressed), category breakdown with visual bars, multi-filter system, and AI analysis via Groq that identifies top pain points, what users love, and what to prioritize fixing first.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Complexity</span>
-                <span class="detail-value muted">The multi-filter system with simultaneous criteria (sentiment + status + source + category) and the category breakdown component. Getting AND logic right across four independent filters took multiple iterations.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Roadmap</span>
-                <span class="detail-value muted">Connect it to the Task Board so addressing a feedback item creates a linked task. Add a web survey form so feedback flows in directly rather than being entered manually.</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Arch</span>
-                <div class="detail-value">
-                  <div class="arch-flow">
-                    <span class="arch-box">React Frontend</span>
-                    <span class="arch-arrow">→</span>
-                    <span class="arch-box">Supabase Auth + RLS</span>
-                    <span class="arch-arrow">→</span>
-                    <div class="arch-branch">
-                      <span class="arch-box">PostgreSQL DB</span>
-                      <span class="arch-box">Groq API</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="badge">React</span>
-              <span class="badge">Supabase</span>
-              <span class="badge">Groq AI</span>
-              <span class="badge">Tailwind</span>
-            </div>
-          </article>
-
-        </div>
-      </section>
-    </div>
-
-    <!-- Debugging Story — default bg -->
-    <section class="py-24 fade-up delay-4">
+  <!-- Projects — alt band -->
+  <div class="alt-band-wrapper relative z-10">
+    <section class="max-w-5xl mx-auto px-8 md:px-16 py-24 fade-up delay-1">
       <p class="section-label">
-        <span class="accent-line"></span>A debugging story
+        <span class="section-label-left"><span class="accent-line"></span>Projects</span>
+        <span class="section-index">02</span>
       </p>
 
-      <div class="debug-card p-7 md:p-8">
+      <div class="flex flex-col gap-10">
+
+        <!-- Project 1: Task Board -->
+        <article class="card p-7 md:p-8 fade-up delay-2">
+          <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
+            <div>
+              <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Task Board</h2>
+              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">Kanban · Productivity</p>
+            </div>
+            <div class="flex gap-2 pt-1 flex-wrap">
+              <a href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener" class="link-btn primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/darshan2study-cpu/Task-Board" target="_blank" rel="noopener" class="link-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <div class="detail-row">
+              <span class="detail-label">Problem</span>
+              <span class="detail-value muted">Teams lose alignment when task priority, status, and context live in different places. This board puts everything in one view — priority, due dates, subtasks, and AI recommendations.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Built</span>
+              <span class="detail-value muted">Full-stack Kanban with drag-and-drop columns, per-card detail modals (title, description, priority, due date, subtasks with progress tracking), overdue filtering, and AI-powered task prioritization via Groq that reads open tasks and recommends what to focus on first.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Improvements</span>
+              <span class="detail-value muted">Started with a simple title + due date card. Mid-build, realized that wasn't enough to be genuinely useful. Added a full detail modal — editable fields, description, subtasks with progress tracking. Took longer. Worth it.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Tradeoff</span>
+              <span class="detail-value muted">Planned an activity log per card, deprioritized it. Adding it meant another database table and storage records — useful polish, not a new skill. Documented it as a planned feature and moved on.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Flow</span>
+              <div class="detail-value">
+                <div class="arch-pipeline">
+                  <span class="arch-node"><span class="arch-box">React UI</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">Supabase Auth + RLS</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">PostgreSQL</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">Groq API</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Frontend</span>
+            <span class="badge">Auth + DB</span>
+            <span class="badge">AI Layer</span>
+            <span class="badge">Tailwind</span>
+          </div>
+        </article>
+
+        <!-- Project 2: Pulse -->
+        <article class="card p-7 md:p-8 fade-up delay-3">
+          <div class="flex items-start justify-between gap-4 flex-wrap mb-6">
+            <div>
+              <h2 class="serif text-2xl md:text-3xl mb-1" style="color: var(--text);">Pulse</h2>
+              <p class="text-xs tracking-wide uppercase" style="color: var(--muted);">PM Tool · Feedback Analysis</p>
+            </div>
+            <div class="flex gap-2 pt-1 flex-wrap">
+              <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener" class="link-btn primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/darshan2study-cpu/Feedback-tracker" target="_blank" rel="noopener" class="link-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <div class="detail-row">
+              <span class="detail-label">Problem</span>
+              <span class="detail-value muted">Feedback from user interviews, support tickets, app reviews, and surveys lives in different places. PMs waste time aggregating instead of analyzing. Pulse centralizes it with structured categorization so patterns surface faster.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Built</span>
+              <span class="detail-value muted">Feedback collection app with source/category/sentiment tagging, status tracking (Open → In Progress → Addressed), category breakdown with visual bars, multi-filter system, and AI analysis via Groq that identifies top pain points, what users love, and what to prioritize fixing first.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Complexity</span>
+              <span class="detail-value muted">The multi-filter system with simultaneous criteria (sentiment + status + source + category) and the category breakdown component. Getting AND logic right across four independent filters took multiple iterations.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Roadmap</span>
+              <span class="detail-value muted">Connect it to the Task Board so addressing a feedback item creates a linked task. Add a web survey form so feedback flows in directly rather than being entered manually.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Flow</span>
+              <div class="detail-value">
+                <div class="arch-pipeline">
+                  <span class="arch-node"><span class="arch-box">React UI</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">Supabase Auth + RLS</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">PostgreSQL</span><span class="arch-sep">→</span></span>
+                  <span class="arch-node"><span class="arch-box">Groq API</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Frontend</span>
+            <span class="badge">Auth + DB</span>
+            <span class="badge">AI Layer</span>
+            <span class="badge">Tailwind</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Debugging Story — default bg -->
+  <div class="section-sep relative z-10">
+    <section class="max-w-5xl mx-auto px-8 md:px-16 py-24 fade-up delay-4">
+      <p class="section-label">
+        <span class="section-label-left"><span class="accent-line"></span>A debugging story</span>
+        <span class="section-index">03</span>
+      </p>
+
+      <div class="debug-card p-7 md:p-8" style="max-width: 680px;">
         <p class="text-sm leading-relaxed mb-4" style="color: var(--muted);">
           One night both apps were loading extremely slowly or not at all. I opened the browser console expecting a code error.
         </p>
@@ -436,46 +449,49 @@
         </p>
       </div>
     </section>
+  </div>
 
-    <!-- What I Learned — alt band -->
-    <div class="section-band band-alt">
-      <section class="max-w-4xl mx-auto px-6 md:px-6 py-24 fade-up delay-5">
-        <p class="section-label">
-          <span class="accent-line"></span>What building taught me
-        </p>
+  <!-- What I Learned — alt band -->
+  <div class="alt-band-wrapper relative z-10">
+    <section class="max-w-5xl mx-auto px-8 md:px-16 py-24 fade-up delay-5">
+      <p class="section-label">
+        <span class="section-label-left"><span class="accent-line"></span>What building taught me</span>
+        <span class="section-index">04</span>
+      </p>
 
-        <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8" style="max-width: 680px;">
 
-          <div class="learned-item">
-            <span class="learned-num">01</span>
-            <div>
-              <p class="text-sm font-medium mb-2" style="color: var(--text);">You don't need to write code to reason about it.</p>
-              <p class="text-sm leading-relaxed" style="color: var(--muted);">Understanding what each line does — not memorizing syntax — is what makes AI-assisted building actually work.</p>
-            </div>
+        <div class="learned-item">
+          <span class="learned-num">01</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">You don't need to write code to reason about it.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">Understanding what each line does — not memorizing syntax — is what makes AI-assisted building actually work.</p>
           </div>
-
-          <div class="learned-item">
-            <span class="learned-num">02</span>
-            <div>
-              <p class="text-sm font-medium mb-2" style="color: var(--text);">The gap between a working prototype and a useful tool is product decisions, not technical ones.</p>
-              <p class="text-sm leading-relaxed" style="color: var(--muted);">The Task Board's most important upgrade was a UX call — the detail modal — not a technical one.</p>
-            </div>
-          </div>
-
-          <div class="learned-item">
-            <span class="learned-num">03</span>
-            <div>
-              <p class="text-sm font-medium mb-2" style="color: var(--text);">Debugging taught me more than building.</p>
-              <p class="text-sm leading-relaxed" style="color: var(--muted);">Every error forced me to understand one more layer of the stack — from React state to Supabase RLS to network infrastructure.</p>
-            </div>
-          </div>
-
         </div>
-      </section>
-    </div>
 
-    <!-- Footer -->
-    <footer class="py-10 fade-up delay-6" style="border-top: 1px solid var(--border);">
+        <div class="learned-item">
+          <span class="learned-num">02</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">The gap between a working prototype and a useful tool is product decisions, not technical ones.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">The Task Board's most important upgrade was a UX call — the detail modal — not a technical one.</p>
+          </div>
+        </div>
+
+        <div class="learned-item">
+          <span class="learned-num">03</span>
+          <div>
+            <p class="text-sm font-medium mb-2" style="color: var(--text);">Debugging taught me more than building.</p>
+            <p class="text-sm leading-relaxed" style="color: var(--muted);">Every error forced me to understand one more layer of the stack — from React state to Supabase RLS to network infrastructure.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="section-sep relative z-10">
+    <footer class="max-w-5xl mx-auto px-8 md:px-16 py-10 fade-up delay-6">
       <div class="flex items-center justify-between flex-wrap gap-4">
         <span class="glyph">Darshan — PM Tools</span>
         <a href="https://github.com/darsh-pm" target="_blank" rel="noopener" class="link-btn text-xs">
@@ -484,8 +500,7 @@
         </a>
       </div>
     </footer>
-
-  </main>
+  </div>
 
 </body>
 </html>
