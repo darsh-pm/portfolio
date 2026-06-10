@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Task Board — AI Task Prioritization · Case Study</title>
+<meta name="description" content="Case study: Task Board, a live kanban workflow tool with one-click AI prioritization that ranks the board and explains its reasoning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-back" href="index.html"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="nav-cta" href="mailto:darshanr2k1@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ CASE HERO ============ -->
+<section class="case-hero">
+  <div class="wrap">
+    <span class="eyebrow accent">Case study · 02</span>
+    <h1>Task Board — a kanban with an opinion.</h1>
+    <p class="lede">
+      A live task management tool where one click sends the full board state to
+      an AI model and returns a ranked execution order — with the reasoning
+      written out, so you can disagree with it intelligently.
+    </p>
+    <div class="btn-row" style="margin-top:30px;">
+      <a class="btn btn-primary" href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener">Open live product <span class="ext">↗</span></a>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
+      <div><dt>Type</dt><dd>AI task prioritization</dd></div>
+      <div><dt>Stack</dt><dd>React · PostgreSQL · Groq API</dd></div>
+      <div><dt>Status</dt><dd>Live — open to try</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="wrap case-shot-full reveal in">
+  <figure class="shot shot-glow">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Task-Board</span></div>
+    <img src="assets/taskboard-board.png" alt="Task Board kanban with To Do, In Progress, Done columns, overdue indicator, and an AI priority analysis ranking all tasks" />
+  </figure>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="case-section">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">01</span>
+      <h2>Overview</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        Task Board is a three-column kanban — To Do, In Progress, Done — with
+        priorities, due dates, subtasks, and overdue tracking, behind per-user
+        authentication. The differentiating feature is <strong>AI
+        Prioritize</strong>: a single action that reads every task's priority,
+        status, deadline, and subtask progress, then returns a numbered
+        execution order with a sentence of reasoning per task.
+      </p>
+      <p>
+        It's a small product built to answer a precise question: where in a
+        familiar workflow does AI add judgment, and where does it just add noise?
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">02</span>
+      <h2>Problem</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        Kanban boards show status, not sequence. A board can be perfectly
+        organized and still leave the real question unanswered: of everything
+        here, what do I do <strong>right now</strong>?
+      </p>
+      <p>
+        Answering that requires weighing several signals at once — priority
+        labels, due dates, what's overdue, what's already mid-flight, how much
+        of each task is done. Humans do this constantly and inconsistently;
+        it's exactly the kind of bounded, multi-factor judgment an AI model can
+        do well if it's given clean structure.
+      </p>
+      <div class="pull">
+        The bet: an AI that ranks five tasks with visible reasoning beats a
+        dashboard that displays fifty signals without any.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT THINKING ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">03</span>
+      <h2>Product thinking</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        The workflow had to stay boring. People already know kanban; making
+        them learn a new paradigm to get AI value is a tax most won't pay.
+        So the board itself is deliberately conventional, and the AI is a
+        <strong>single, optional action</strong> layered on top.
+      </p>
+      <p>
+        The second principle: the AI reads everything but writes nothing. It
+        ranks and explains; the user moves cards. Small contextual nudges close
+        the loop instead — when every subtask on a card is checked, the product
+        asks one question: <strong>"All subtasks complete — mark task as
+        Done?"</strong> One tap, user in control.
+      </p>
+      <p>
+        Subtask progress (1/2, 4/4) was added specifically as model input:
+        a task that's 80% done and overdue should rank differently from one
+        that's untouched and overdue, and the model can only know that if the
+        data structure carries it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap case-shot-full reveal">
+  <figure class="shot">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — task detail</span></div>
+    <img src="assets/taskboard-modal.png" alt="Task detail modal displaying all the required fields" />
+  </figure>
+</div>
+
+<!-- ============ KEY DECISIONS ============ -->
+<section class="case-section">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">04</span>
+      <h2>Key decisions</h2>
+    </div>
+    <div class="decisions">
+      <article>
+        <span class="tag">Model</span>
+        <h3>Fast inference over frontier reasoning</h3>
+        <p>Ranking a bounded set of structured tasks doesn't need a frontier model. Serving a lightweight model through the Groq API keeps the feature near-instant and near-free — and proved that careful input structure matters more than model size for this class of task.</p>
+      </article>
+      <article>
+        <span class="tag">UX</span>
+        <h3>Reasoning shown in full, per task</h3>
+        <p>The analysis panel doesn't output "1, 2, 3, 4." Each rank carries its why — overdue status, priority, distance to deadline. Users calibrate trust by checking the reasoning against their own.</p>
+      </article>
+      <article>
+        <span class="tag">Interaction</span>
+        <h3>Pull, not push</h3>
+        <p>Prioritization runs only when requested. An AI that constantly reshuffles your board destroys spatial memory; one you summon respects it.</p>
+      </article>
+      <article>
+        <span class="tag">Detail</span>
+        <h3>Completion nudges over automation</h3>
+        <p>Auto-moving completed cards felt efficient and tested badly in my own use — state changing without consent erodes trust. The confirm-prompt pattern kept the speed and the control.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section class="case-section tight">
+  <div class="wrap">
+    <div class="case-grid reveal">
+      <div class="case-label">
+        <span class="num">05</span>
+        <h2>Technical architecture</h2>
+      </div>
+      <div>
+        <div class="arch">
+          <article>
+            <h3>React client</h3>
+            <p>Board, columns, card movement controls, task and subtask views, overdue computation.</p>
+          </article>
+          <article>
+            <h3>Auth &amp; PostgreSQL</h3>
+            <p>Per-user boards behind authentication; tasks, subtasks, and statuses persisted relationally.</p>
+          </article>
+          <article>
+            <h3>Serialization layer</h3>
+            <p>Board state compiled into a compact structured prompt: title, priority, status, due date, subtask ratio per task.</p>
+          </article>
+          <article>
+            <h3>Groq API inference</h3>
+            <p>Returns a ranked list with per-task rationale; response parsed and rendered as the AI Priority Analysis panel.</p>
+          </article>
+        </div>
+        <p class="arch-note">flow: board state → serialize → rank with rationale → render → human moves the cards</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRADEOFFS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">06</span>
+      <h2>Tradeoffs</h2>
+    </div>
+    <div class="tradeoffs">
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>A small, fast model</strong> over a frontier one.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Occasionally blunt phrasing in rationales. Acceptable: the ranking logic stays sound, and the cost/latency profile makes the feature free to use habitually.</p></div>
+      </article>
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>Whole-board analysis</strong> instead of per-task scoring.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Won't scale past a few dozen tasks per call — fine for personal boards, a known rework item before team-scale use.</p></div>
+      </article>
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>No drag-and-drop in v1</strong>; explicit move buttons instead.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Less tactile. But it shipped a week earlier, works identically on mobile, and is fully keyboard-accessible by default.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENSHOTS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">07</span>
+      <h2>Screens</h2>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — AI priority analysis</span></div>
+        <img src="assets/taskboard-analysis.png" alt="AI Priority Analysis panel: a ranked execution order across the board with reasoning per task" />
+        <figcaption>The AI Priority Analysis panel — a ranked execution order with reasoning, one click away from an otherwise conventional board.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — subtask completion</span></div>
+        <img src="assets/taskboard-checklist.png" alt="Task editing modal showing completed subtasks, progress bar at 2/2, and a move-to-done suggestion" />
+        <figcaption>Completion nudge — when subtasks hit 2/2, the product offers the next step instead of taking it.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEARNINGS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">08</span>
+      <h2>Learnings</h2>
+    </div>
+    <div class="learnings">
+      <article>
+        <h3>Input structure beats model size</h3>
+        <p>A small model with clean, complete board state outperformed early experiments where a larger model guessed from sparse data. Data modeling is AI product work.</p>
+      </article>
+      <article>
+        <h3>AI features should be summonable, not ambient</h3>
+        <p>The on-demand pattern made the feature feel like a tool rather than a surveillance layer. Users — starting with me — used it more because it ran less.</p>
+      </article>
+      <article>
+        <h3>Boring workflows are the best AI delivery vehicle</h3>
+        <p>Keeping the kanban conventional meant zero onboarding cost for the AI feature. The familiar surface is what made the unfamiliar capability adoptable.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- next case -->
+<section class="case-section tight">
+  <div class="wrap">
+    <div class="next-case reveal">
+      <div>
+        <span class="eyebrow">Next case study</span>
+        <h2 style="margin-top:8px;">Pulse — AI feedback analysis</h2>
+        <p>Feedback in, ranked priorities out.</p>
+      </div>
+      <a class="btn btn-primary" href="pulse.html">Read case study <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Darshan R. — Product Manager</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="pulse.html">Pulse</a>
+      <a href="https://www.linkedin.com/in/darshan-acharya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="mailto:darshanr2k1@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add("js");
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

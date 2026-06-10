@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pulse — AI Feedback Analysis · Case Study</title>
+<meta name="description" content="Case study: Pulse, a live AI-powered feedback analysis platform that turns raw user feedback into ranked product priorities." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-back" href="index.html"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="nav-cta" href="mailto:darshanr2k1@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ CASE HERO ============ -->
+<section class="case-hero">
+  <div class="wrap">
+    <span class="eyebrow accent">Case study · 01</span>
+    <h1>Pulse — feedback in, priorities out.</h1>
+    <p class="lede">
+      A live AI-powered feedback analysis platform that collects user feedback,
+      classifies sentiment and category, and generates a ranked answer to the
+      only question that matters: what should the team fix first?
+    </p>
+    <div class="btn-row" style="margin-top:30px;">
+      <a class="btn btn-primary" href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener">Open live product <span class="ext">↗</span></a>
+    </div>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
+      <div><dt>Type</dt><dd>AI feedback intelligence</dd></div>
+      <div><dt>Stack</dt><dd>React · PostgreSQL · Groq API</dd></div>
+      <div><dt>Status</dt><dd>Live — open to try</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="wrap case-shot-full reveal in">
+  <figure class="shot shot-glow">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Feedback-tracker</span></div>
+    <img src="assets/pulse-dashboard.png" alt="Pulse dashboard: sentiment totals (positive, negative, neutral), category breakdown bars, filters, and the feedback list" />
+  </figure>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="case-section">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">01</span>
+      <h2>Overview</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        Pulse is a feedback tracker with an analysis layer on top. Feedback
+        arrives from app reviews, support tickets, and surveys; each item is
+        tagged with sentiment, category, and status. The dashboard shows the
+        live shape of the feedback — sentiment split, category breakdown,
+        open vs. addressed — and an AI analysis turns that shape into a
+        ranked, reasoned priority list.
+      </p>
+      <p>
+        I built it because feedback triage is the highest-leverage, most
+        neglected PM ritual I saw across <strong>30+ client projects</strong>:
+        everyone collects feedback, almost no one converts it into decisions
+        at a regular cadence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">02</span>
+      <h2>Problem</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        Raw feedback is high-volume, mixed-sentiment, and unevenly important.
+        A crash report, a feature request from an enterprise customer, and a
+        vague complaint about onboarding all land in the same inbox — and the
+        loudest item wins, not the most important one.
+      </p>
+      <div class="pull">
+        The job to be done isn't "store feedback." It's "tell me what to do
+        about it, and in what order."
+      </div>
+      <p>
+        Existing tools solved collection and tagging. The decision step —
+        weighing impact, urgency, and frequency across items — stayed manual,
+        slow, and dependent on whoever ran the spreadsheet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT THINKING ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">03</span>
+      <h2>Product thinking</h2>
+    </div>
+    <div class="case-body">
+      <p>
+        I scoped Pulse around one output: a <strong>defensible priority
+        ranking</strong>. Every feature earns its place by feeding that
+        output or making it trustworthy.
+      </p>
+      <p>
+        Sentiment and category classification exist so the AI has structured
+        signal, not just text. Status tracking (open → in progress →
+        addressed) exists so the ranking reflects what's already being
+        handled. Filters exist so a PM can interrogate the data behind a
+        recommendation instead of taking it on faith.
+      </p>
+      <p>
+        Crucially, the AI output is split into <strong>"prioritize
+        first"</strong> and <strong>"can wait"</strong> — with a written
+        rationale per item. A ranking without reasons is a black box; a
+        ranking with reasons is a conversation starter for the team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap case-shot-full reveal">
+  <figure class="shot">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — AI analysis</span></div>
+    <img src="assets/pulse-analysis.png" alt="Pulse AI analysis: ranked prioritize-first items with written rationale, a can-wait group, and high/medium pain points" />
+  </figure>
+</div>
+
+<!-- ============ KEY DECISIONS ============ -->
+<section class="case-section">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">04</span>
+      <h2>Key decisions</h2>
+    </div>
+    <div class="decisions">
+      <article>
+        <span class="tag">Scope</span>
+        <h3>Rank, don't just summarize</h3>
+        <p>Early versions produced a paragraph summary. Useful, but it didn't change behavior. Forcing the model into a ranked structure with explicit "can wait" calls made the output actionable — and contestable, which is the point.</p>
+      </article>
+      <article>
+        <span class="tag">Trust</span>
+        <h3>Every recommendation carries its evidence</h3>
+        <p>Each ranked item links back to the underlying feedback and shows its justification. The PM can disagree with the model, but never has to wonder where a conclusion came from.</p>
+      </article>
+      <article>
+        <span class="tag">Workflow</span>
+        <h3>Status lives next to analysis</h3>
+        <p>Marking items addressed updates the picture the AI reasons over. The analysis stays a live operational view, not a one-off report that decays the moment it's generated.</p>
+      </article>
+      <article>
+        <span class="tag">Sequencing</span>
+        <h3>Manual entry before integrations</h3>
+        <p>I shipped with manual feedback entry plus source tagging instead of building API integrations first. It validated the analysis loop — the actual hypothesis — weeks earlier.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section class="case-section tight">
+  <div class="wrap">
+    <div class="case-grid reveal">
+      <div class="case-label">
+        <span class="num">05</span>
+        <h2>Technical architecture</h2>
+      </div>
+      <div>
+        <div class="arch">
+          <article>
+            <h3>React client</h3>
+            <p>Dashboard, filters, feedback management, and the analysis panel. State kept deliberately thin; stored data owns truth.</p>
+          </article>
+          <article>
+            <h3>Groq API</h3>
+            <p>Low-latency inference for sentiment and category classification, plus the structured priority analysis over the full feedback set.</p>
+          </article>
+          <article>
+            <h3>PostgreSQL</h3>
+            <p>Feedback items, tags, statuses, and analysis results — so repeated views don't re-run inference.</p>
+          </article>
+          <article>
+            <h3>Analytics layer</h3>
+            <p>Sentiment splits, category breakdowns, and status counts computed live to drive the dashboard.</p>
+          </article>
+        </div>
+        <p class="arch-note">flow: ingest → classify → store → aggregate → analyze → rank</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRADEOFFS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">06</span>
+      <h2>Tradeoffs</h2>
+    </div>
+    <div class="tradeoffs">
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>On-demand analysis</strong> instead of continuous re-ranking on every new item.</p></div>
+        <div class="cost"><h4>Cost</h4><p>The dashboard can briefly lag reality — accepted, because triage is a cadence ritual, not a real-time feed, and it cuts inference cost sharply.</p></div>
+      </article>
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>Fixed category taxonomy</strong> (UX, performance, bug, feature request, other) over model-generated categories.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Less nuance per item, but breakdowns stay comparable week over week — consistency beats cleverness for trend data.</p></div>
+      </article>
+      <article>
+        <div class="chose"><h4>Chose</h4><p><strong>AI recommends, human decides.</strong> The model never changes a status or closes an item.</p></div>
+        <div class="cost"><h4>Cost</h4><p>One extra click per action — a price worth paying to keep accountability with the PM and trust in the tool.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENSHOTS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">07</span>
+      <h2>Screens</h2>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — feedback detail</span></div>
+        <img src="assets/pulse-detail.png" alt="Feedback detail view with sentiment and category tags, description, and a status switcher" />
+        <figcaption>Item detail — sentiment, category, source, and status transitions in one editable view.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEARNINGS ============ -->
+<section class="case-section tight">
+  <div class="wrap case-grid reveal">
+    <div class="case-label">
+      <span class="num">08</span>
+      <h2>Learnings</h2>
+    </div>
+    <div class="learnings">
+      <article>
+        <h3>Structured output is a product decision, not a prompt detail</h3>
+        <p>The leap in usefulness came from constraining the model's format, not improving its prose. Output shape is where PMs should spend their AI design effort.</p>
+      </article>
+      <article>
+        <h3>Trust is built in the UI, not the model</h3>
+        <p>Showing evidence and rationale next to every recommendation did more for adoption than any accuracy improvement would have.</p>
+      </article>
+      <article>
+        <h3>Building changed my estimates</h3>
+        <p>Having shipped an AI analysis feature myself, I now scope AI work with real knowledge of where the cost and risk actually live — prompts are cheap, evaluation and edge cases are not.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- next case -->
+<section class="case-section tight">
+  <div class="wrap">
+    <div class="next-case reveal">
+      <div>
+        <span class="eyebrow">Next case study</span>
+        <h2 style="margin-top:8px;">Task Board — AI task prioritization</h2>
+        <p>A kanban tool that ranks your board and explains itself.</p>
+      </div>
+      <a class="btn btn-primary" href="task-board.html">Read case study <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Darshan R. — Product Manager</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="task-board.html">Task Board</a>
+      <a href="https://www.linkedin.com/in/darshan-acharya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="mailto:darshanr2k1@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add("js");
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

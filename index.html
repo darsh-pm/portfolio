@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darshan R. — Product Manager · AI Builder</title>
+<meta name="description" content="Product Manager with 3+ years of experience and 30+ delivered projects, now building live AI-powered products end to end." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ----- page-specific ----- */
+
+/* hero */
+.hero { padding: 120px 0 90px; }
+.hero .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 26px; }
+.hero .eyebrow::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+}
+.hero h1 { max-width: 16ch; }
+.hero .lede { margin-top: 28px; }
+.hero .btn-row { margin-top: 38px; }
+
+.hero-stats {
+  display: flex; gap: 0; margin-top: 64px;
+  border-top: 1px solid var(--border);
+}
+.hero-stats div {
+  padding: 22px 40px 0 0;
+  margin-right: 40px;
+}
+.hero-stats div + div { border-left: 1px solid var(--border); padding-left: 40px; }
+.hero-stats strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 30px; font-weight: 600;
+  color: var(--text-1); letter-spacing: -0.02em;
+}
+.hero-stats span { font-size: 13px; color: var(--text-3); }
+
+/* product shelf below hero */
+.shelf { position: relative; padding-bottom: 0; }
+.shelf .shot { max-width: 980px; margin: 0 auto; }
+.shelf-caption {
+  max-width: 980px; margin: 14px auto 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-size: 13px; color: var(--text-3);
+}
+.shelf-caption a { color: var(--text-2); font-weight: 500; }
+.shelf-caption a:hover { color: var(--text-1); }
+
+/* featured products */
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.product-card + .product-card { margin-top: 28px; }
+
+.product-card.flagship .product-body { padding: 56px 56px 0; }
+.product-body { padding: 40px 40px 0; }
+
+.product-meta {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.product-meta h3 {
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+.product-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(157,155,245,.25);
+  padding: 4px 9px;
+  border-radius: 5px;
+}
+.product-desc { max-width: 60ch; }
+.product-tech {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-top: 18px;
+}
+.product-tech li {
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+.product-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14.5px; font-weight: 500;
+  color: var(--accent-strong);
+}
+.product-cta:hover .arrow { transform: translateX(3px); }
+.product-cta .arrow { transition: transform .15s ease; }
+
+.product-shot { padding: 44px 56px 0; }
+.product-shot .shot { border-bottom: none; border-radius: 12px 12px 0 0; }
+.product-shot .shot-bar { border-radius: 12px 12px 0 0; }
+
+.product-card.secondary { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; }
+.product-card.secondary .product-body { padding: 48px; }
+.product-card.secondary .product-shot { padding: 48px 0 48px 0; }
+.product-card.secondary .shot { border-radius: 12px 0 0 12px; border-right: none; border-bottom: 1px solid var(--border-strong); }
+.product-card.secondary .shot-bar { border-radius: 12px 0 0 0; }
+
+/* how I work */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.work-grid article {
+  background: var(--bg-card);
+  padding: 32px 28px;
+}
+.work-grid .glyph {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+.work-grid h3 { font-size: 16.5px; margin-bottom: 8px; letter-spacing: -0.01em; }
+.work-grid p { font-size: 14.5px; color: var(--text-2); line-height: 1.6; }
+
+/* experience */
+.exp { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.exp-claims { display: grid; gap: 0; }
+.exp-claims article {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-claims article:first-child { padding-top: 0; }
+.exp-claims h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -0.01em; }
+.exp-claims p { font-size: 14.5px; }
+
+.exp-figure {
+  position: sticky; top: 100px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 44px;
+  background: var(--bg-card);
+}
+.exp-figure .big {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 84px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text-1);
+}
+.exp-figure .big em { font-style: normal; color: var(--accent-strong); }
+.exp-figure .label { margin-top: 10px; font-size: 15px; color: var(--text-2); }
+.exp-figure hr { border: none; border-top: 1px solid var(--border); margin: 30px 0; }
+.exp-figure ul { list-style: none; display: grid; gap: 12px; }
+.exp-figure li {
+  display: flex; gap: 12px; align-items: baseline;
+  font-size: 14.5px; color: var(--text-2);
+}
+.exp-figure li::before {
+  content: ""; flex: none;
+  width: 6px; height: 6px; border-radius: 2px;
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* contact */
+.contact-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-card);
+  padding: 72px 64px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.contact-card h2 { margin-bottom: 16px; }
+.contact-actions { display: grid; gap: 12px; justify-items: stretch; }
+.contact-actions .btn { justify-content: center; }
+.contact-mail {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-3);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: 1fr; }
+  .exp { grid-template-columns: 1fr; gap: 48px; }
+  .exp-figure { position: static; }
+  .product-card.secondary { grid-template-columns: 1fr; }
+  .product-card.secondary .product-shot { padding: 0 32px; }
+  .product-card.secondary .shot { border-radius: 12px 12px 0 0; border-right: 1px solid var(--border-strong); border-bottom: none; }
+  .contact-card { grid-template-columns: 1fr; padding: 48px 32px; }
+}
+@media (max-width: 760px) {
+  .hero { padding: 72px 0 56px; }
+  .hero-stats { flex-direction: column; border-top: none; }
+  .hero-stats div { border-top: 1px solid var(--border); margin: 0; padding: 18px 0 0; }
+  .hero-stats div + div { border-left: none; padding-left: 0; margin-top: 18px; }
+  .product-card.flagship .product-body { padding: 36px 24px 0; }
+  .product-shot { padding: 28px 24px 0; }
+  .product-card.secondary .product-body { padding: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-name" href="index.html">Darshan R. <span>/ Product</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#experience">Experience</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow accent">Open to remote product roles</span>
+    <h1 class="display reveal in">
+      Product manager.<br />
+      <span class="mark">AI builder.</span><br />
+      <span class="dim">Same person.</span>
+    </h1>
+    <p class="lede reveal in">
+      Three years managing custom software delivery — 30+ projects from
+      requirements to release. Now I build and ship AI-powered products
+      myself, so the gap between product strategy and technical execution
+      is one I cross daily, not delegate.
+    </p>
+    <div class="btn-row reveal in">
+      <a class="btn btn-primary" href="#work">View work <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#contact">Contact</a>
+    </div>
+    <div class="hero-stats reveal in">
+      <div><strong>3+</strong><span>years in product</span></div>
+      <div><strong>30+</strong><span>projects delivered</span></div>
+      <div><strong>2</strong><span>live AI products, built solo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- hero product shelf -->
+<div class="wrap shelf reveal">
+  <figure class="shot shot-glow">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Feedback-tracker</span></div>
+    <img src="assets/pulse-dashboard.png" alt="Pulse dashboard showing sentiment totals, category breakdown, and a filterable feedback list" />
+  </figure>
+  <p class="shelf-caption">
+    <span>Pulse — AI feedback analysis. Live and open to try.</span>
+    <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener">Open product <span class="ext">↗</span></a>
+  </p>
+</div>
+
+<!-- ============ FEATURED PRODUCTS ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Featured products</span>
+      <h2 class="h-section">Built, shipped, and live — not mocked.</h2>
+      <p>Two working products, designed and developed end to end. Both are deployed and open — explore them the way a user would.</p>
+    </div>
+
+    <!-- Pulse — flagship -->
+    <article class="product-card flagship reveal">
+      <div class="product-body">
+        <div class="product-meta">
+          <h3>Pulse</h3>
+          <span class="product-tag">Flagship · AI feedback analysis</span>
+          <span class="live-chip">Live</span>
+        </div>
+        <p class="product-desc">
+          A feedback intelligence platform that turns raw user feedback into
+          ranked priorities. Pulse collects feedback across sources, classifies
+          sentiment and category, surfaces top pain points, and generates an AI
+          analysis that tells a product team what to fix first — and what can wait.
+        </p>
+        <ul class="product-tech">
+          <li>React</li><li>PostgreSQL</li><li>Groq API</li><li>Sentiment analysis</li><li>Feedback analytics</li>
+        </ul>
+        <div class="product-actions">
+          <a class="product-cta" href="pulse.html">Read case study <span class="arrow">→</span></a>
+          <a class="product-link" href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener">Open product <span class="ext">↗</span></a>
+        </div>
+      </div>
+      <div class="product-shot">
+        <figure class="shot">
+          <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — feedback detail</span></div>
+          <img src="assets/pulse-detail.png" alt="Pulse feedback detail view with sentiment and category tags, description, and status controls" />
+        </figure>
+      </div>
+    </article>
+
+    <!-- Task Board -->
+    <article class="product-card secondary reveal">
+      <div class="product-shot">
+        <figure class="shot">
+          <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Task-Board</span></div>
+          <img src="assets/taskboard-board.png" alt="Task Board kanban with To Do, In Progress and Done columns plus an AI priority analysis panel" />
+        </figure>
+      </div>
+      <div class="product-body">
+        <div class="product-meta">
+          <h3>Task Board</h3>
+          <span class="product-tag">AI task prioritization</span>
+          <span class="live-chip">Live</span>
+        </div>
+        <p class="product-desc">
+          A kanban workflow tool with an opinion. One click sends the full board
+          state to an AI model, which returns a ranked execution order with
+          reasoning — factoring in priority, due dates, status, and subtask progress.
+        </p>
+        <ul class="product-tech">
+          <li>React</li><li>PostgreSQL</li><li>Groq API</li><li>AI prioritization</li><li>Authentication</li>
+        </ul>
+        <div class="product-actions">
+          <a class="product-cta" href="task-board.html">Read case study <span class="arrow">→</span></a>
+          <a class="product-link" href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener">Open product <span class="ext">↗</span></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ HOW I WORK ============ -->
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How I work</span>
+      <h2 class="h-section">Strategy that survives contact with engineering.</h2>
+    </div>
+    <div class="work-grid reveal">
+      <article>
+        <div class="glyph" aria-hidden="true">◎</div>
+        <h3>Product discovery</h3>
+        <p>Start from the user's actual problem, not the requested feature. Requirements gathering across 30+ client projects taught me to find the question behind the ask.</p>
+      </article>
+      <article>
+        <div class="glyph" aria-hidden="true">⇅</div>
+        <h3>Ruthless prioritization</h3>
+        <p>Every backlog is a negotiation between impact and cost. I make the tradeoffs explicit, sequence by leverage, and say no with reasons attached.</p>
+      </article>
+      <article>
+        <div class="glyph" aria-hidden="true">⊕</div>
+        <h3>Stakeholder alignment</h3>
+        <p>Clients, engineers, and leadership rarely want the same thing on day one. My job is getting them to the same roadmap — and keeping them there through change.</p>
+      </article>
+      <article>
+        <div class="glyph" aria-hidden="true">▸</div>
+        <h3>Execution &amp; delivery</h3>
+        <p>Plans are cheap; shipped software is not. I run delivery end to end: scoping, sprint coordination, risk surfacing, and release management.</p>
+      </article>
+      <article>
+        <div class="glyph" aria-hidden="true">✦</div>
+        <h3>AI-assisted development</h3>
+        <p>I build with AI to compress the idea-to-prototype loop. Pulse and Task Board went from concept to live, working software in weeks, not quarters.</p>
+      </article>
+      <article>
+        <div class="glyph" aria-hidden="true">↻</div>
+        <h3>Validate by building</h3>
+        <p>The fastest way to test a product hypothesis is now to build a real version of it. Being able to build changed how I scope, estimate, and de-risk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Professional experience</span>
+      <h2 class="h-section">Three years of shipping other people's products. Now mine too.</h2>
+    </div>
+    <div class="exp">
+      <div class="exp-claims reveal">
+        <article>
+          <h3>Product ownership across the full lifecycle</h3>
+          <p>Owned products from first client conversation to post-launch iteration — requirements, scope, roadmap, delivery, and the hard calls in between.</p>
+        </article>
+        <article>
+          <h3>Cross-functional by default</h3>
+          <p>Worked daily with engineers, designers, QA, and client stakeholders. Translated business goals into specs engineers respect and timelines clients trust.</p>
+        </article>
+        <article>
+          <h3>Roadmaps that absorb reality</h3>
+          <p>Planned and re-planned roadmaps across concurrent projects, balancing scope changes, dependencies, and fixed deadlines without losing the thread.</p>
+        </article>
+        <article>
+          <h3>Delivery management at volume</h3>
+          <p>Coordinated delivery on 30+ custom software projects across domains — a pace that forces pattern recognition: what slips, why, and how to catch it early.</p>
+        </article>
+      </div>
+      <aside class="exp-figure reveal">
+        <div class="big"><em>30+</em></div>
+        <p class="label">custom software projects delivered end to end</p>
+        <hr />
+        <ul>
+          <li>Requirements gathering &amp; scoping</li>
+          <li>Roadmap planning &amp; re-planning</li>
+          <li>Stakeholder &amp; client management</li>
+          <li>Sprint &amp; delivery coordination</li>
+          <li>AI-powered product development</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <span class="eyebrow accent">Contact</span>
+        <h2 class="h-section" style="margin-top:14px;">Hiring a PM who can also build?</h2>
+        <p class="lede" style="font-size:16.5px;">I'm looking for a remote product role where shipping matters. The fastest ways to evaluate me: open the live products above, read the case studies, or start a conversation.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:darshanr2k1@gmail.com">Email me <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/darshan-acharya/" target="_blank" rel="noopener">Connect on LinkedIn <span class="ext">↗</span></a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">View resume <span class="ext">↗</span></a>
+        <span class="contact-mail">darshanr2k1@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Darshan R. — Product Manager</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="pulse.html">Pulse</a>
+      <a href="task-board.html">Task Board</a>
+      <a href="https://www.linkedin.com/in/darshan-acharya/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="mailto:darshanr2k1@gmail.com">Email</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add("js");
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
