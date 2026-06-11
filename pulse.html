@@ -17,7 +17,7 @@
   <div class="wrap nav-inner">
     <a class="nav-back" href="index.html"><span aria-hidden="true">←</span> Back to portfolio</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
+      <a href="https://darsh-pm.github.io/Feedback-tracker/?demo=1" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
       <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="nav-cta" href="mailto:darshanr2k1@gmail.com">Contact</a>
     </nav>
@@ -32,12 +32,13 @@
     <span class="eyebrow accent">Case study · 01</span>
     <h1>Pulse — feedback in, priorities out.</h1>
     <p class="lede">
-      A live AI-powered feedback analysis platform that collects user feedback,
-      classifies sentiment and category, and generates a ranked answer to the
-      only question that matters: what should the team fix first?
+      A live AI-powered feedback intelligence platform that collects user
+      feedback, classifies it with AI, tracks how sentiment and categories
+      trend week over week, and generates a ranked answer to the only
+      question that matters: what should the team fix first?
     </p>
     <div class="btn-row" style="margin-top:30px;">
-      <a class="btn btn-primary" href="https://darsh-pm.github.io/Feedback-tracker/" target="_blank" rel="noopener">Open live product <span class="ext">↗</span></a>
+      <a class="btn btn-primary" href="https://darsh-pm.github.io/Feedback-tracker/?demo=1" target="_blank" rel="noopener">Open live demo <span class="ext">↗</span></a>
     </div>
     <dl class="case-meta">
       <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
@@ -51,7 +52,7 @@
 <div class="wrap case-shot-full reveal in">
   <figure class="shot shot-glow">
     <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Feedback-tracker</span></div>
-    <img src="assets/pulse-dashboard.png" alt="Pulse dashboard: sentiment totals (positive, negative, neutral), category breakdown bars, filters, and the feedback list" />
+    <img src="assets/pulse-dashboard.png" alt="Pulse dashboard: status summary, sentiment totals with percentages, AI analysis prompt, category breakdown bars, and recent feedback" />
   </figure>
 </div>
 
@@ -64,11 +65,13 @@
     </div>
     <div class="case-body">
       <p>
-        Pulse is a feedback tracker with an analysis layer on top. Feedback
-        arrives from app reviews, support tickets, and surveys; each item is
-        tagged with sentiment, category, and status. The dashboard shows the
-        live shape of the feedback — sentiment split, category breakdown,
-        open vs. addressed — and an AI analysis turns that shape into a
+        Pulse is a feedback tracker with an intelligence layer on top.
+        Feedback arrives from app reviews, support tickets, and surveys;
+        each item is classified with AI assistance — sentiment, category,
+        and a suggested title the PM confirms or overrides. The dashboard
+        shows the live shape of the feedback — sentiment split, category
+        breakdown, open vs. addressed — an Insights view tracks how that
+        shape moves week over week, and an AI analysis turns it into a
         ranked, reasoned priority list.
       </p>
       <p>
@@ -166,7 +169,12 @@
       <article>
         <span class="tag">Workflow</span>
         <h3>Status lives next to analysis</h3>
-        <p>Marking items addressed updates the picture the AI reasons over. The analysis stays a live operational view, not a one-off report that decays the moment it's generated.</p>
+        <p>Marking items addressed updates the picture the AI reasons over — and the analysis flags itself stale the moment the underlying data moves. A live operational view, not a one-off report.</p>
+      </article>
+      <article>
+        <span class="tag">Analytics</span>
+        <h3>Insights are sentences, not charts</h3>
+        <p>The Insights view pairs trend charts with a rule-based signal engine that writes the takeaway a PM would otherwise extract by hand: category momentum, sentiment shifts, ageing backlog, loudest negative channel.</p>
       </article>
       <article>
         <span class="tag">Sequencing</span>
@@ -189,19 +197,19 @@
         <div class="arch">
           <article>
             <h3>React client</h3>
-            <p>Dashboard, filters, feedback management, and the analysis panel. State kept deliberately thin; stored data owns truth.</p>
+            <p>Dashboard, triage inbox, insights view, and the analysis panel. State kept deliberately thin; stored data owns truth.</p>
           </article>
           <article>
             <h3>Groq API</h3>
-            <p>Low-latency inference for sentiment and category classification, plus the structured priority analysis over the full feedback set.</p>
+            <p>Low-latency inference for sentiment and category classification at intake, plus the structured priority analysis over the active feedback set.</p>
           </article>
           <article>
             <h3>PostgreSQL</h3>
-            <p>Feedback items, tags, statuses, and analysis results — so repeated views don't re-run inference.</p>
+            <p>Feedback items, tags, and statuses behind per-user row-level security. The latest analysis persists with a fingerprint of what it analyzed, so nothing silently re-runs inference.</p>
           </article>
           <article>
             <h3>Analytics layer</h3>
-            <p>Sentiment splits, category breakdowns, and status counts computed live to drive the dashboard.</p>
+            <p>Weekly sentiment and category trends, resolution metrics, and rule-based signals — computed live, no chart libraries, no warehouse.</p>
           </article>
         </div>
         <p class="arch-note">flow: ingest → classify → store → aggregate → analyze → rank</p>
@@ -242,6 +250,11 @@
       <h2>Screens</h2>
     </div>
     <div class="gallery">
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — insights</span></div>
+        <img src="assets/pulse-insights.png" alt="Pulse Insights view: KPI row, auto-generated risk/win/watch signals, weekly sentiment trend chart, feedback volume, and category mix" />
+        <figcaption>Insights — resolution KPIs, auto-generated signals, and week-over-week sentiment, volume, and category trends.</figcaption>
+      </figure>
       <figure class="shot">
         <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — feedback detail</span></div>
         <img src="assets/pulse-detail.png" alt="Feedback detail view with sentiment and category tags, description, and a status switcher" />
