@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Task Board — AI Task Prioritization · Case Study</title>
-<meta name="description" content="Case study: Task Board, a live kanban workflow tool with one-click AI prioritization that ranks the board and explains its reasoning." />
+<title>Task Board — AI Product Planning · Case Study</title>
+<meta name="description" content="Case study: Task Board, a live AI-powered product planning tool — impact/effort scoring, a priority matrix, ranked AI analysis, and capacity-based sprint planning." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
   <div class="wrap nav-inner">
     <a class="nav-back" href="index.html"><span aria-hidden="true">←</span> Back to portfolio</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
+      <a href="https://darsh-pm.github.io/Task-Board/?demo=1" target="_blank" rel="noopener" class="nav-keep">Open product ↗</a>
       <a class="nav-keep" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="nav-cta" href="mailto:darshanr2k1@gmail.com">Contact</a>
     </nav>
@@ -32,16 +32,17 @@
     <span class="eyebrow accent">Case study · 02</span>
     <h1>Task Board — a kanban with an opinion.</h1>
     <p class="lede">
-      A live task management tool where one click sends the full board state to
-      an AI model and returns a ranked execution order — with the reasoning
+      A live product planning tool where every task carries an impact/effort
+      score, a priority matrix shows where the leverage is, and one click gets
+      a ranked plan — or a capacity-budgeted sprint — with the reasoning
       written out, so you can disagree with it intelligently.
     </p>
     <div class="btn-row" style="margin-top:30px;">
-      <a class="btn btn-primary" href="https://darsh-pm.github.io/Task-Board/" target="_blank" rel="noopener">Open live product <span class="ext">↗</span></a>
+      <a class="btn btn-primary" href="https://darsh-pm.github.io/Task-Board/?demo=1" target="_blank" rel="noopener">Open live demo <span class="ext">↗</span></a>
     </div>
     <dl class="case-meta">
       <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
-      <div><dt>Type</dt><dd>AI task prioritization</dd></div>
+      <div><dt>Type</dt><dd>AI product planning</dd></div>
       <div><dt>Stack</dt><dd>React · PostgreSQL · Groq API</dd></div>
       <div><dt>Status</dt><dd>Live — open to try</dd></div>
     </dl>
@@ -51,7 +52,7 @@
 <div class="wrap case-shot-full reveal in">
   <figure class="shot shot-glow">
     <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">darsh-pm.github.io/Task-Board</span></div>
-    <img src="assets/taskboard-board.png" alt="Task Board kanban with To Do, In Progress, Done columns, overdue indicator, and an AI priority analysis ranking all tasks" />
+    <img src="assets/taskboard-board.png" alt="Task Board kanban with backlog health chips, Board and Priority Matrix tabs, impact/effort chips on cards, and AI Rank and Plan Sprint actions" />
   </figure>
 </div>
 
@@ -64,16 +65,20 @@
     </div>
     <div class="case-body">
       <p>
-        Task Board is a three-column kanban — To Do, In Progress, Done — with
-        priorities, due dates, subtasks, and overdue tracking, behind per-user
-        authentication. The differentiating feature is <strong>AI
-        Prioritize</strong>: a single action that reads every task's priority,
-        status, deadline, and subtask progress, then returns a numbered
-        execution order with a sentence of reasoning per task.
+        Task Board starts as a familiar three-column kanban — and grows into a
+        planning platform. Every task carries an <strong>impact and effort
+        score</strong> (set by hand, or suggested by AI with a rationale); a
+        <strong>Priority Matrix</strong> plots the active board into Quick
+        Wins, Big Bets, Fill-ins, and Time Sinks; <strong>AI Rank</strong>
+        reads every signal — status, priority, deadlines, subtask progress,
+        scores — and returns a do-first order with a reason per task; and
+        <strong>AI Sprint Plan</strong> commits work against an effort-point
+        capacity budget, saying out loud what's deferred and why.
       </p>
       <p>
-        It's a small product built to answer a precise question: where in a
-        familiar workflow does AI add judgment, and where does it just add noise?
+        It's built to answer the question a PM faces every morning: of
+        everything on this board, what actually deserves the team's time —
+        and what should we say no to?
       </p>
     </div>
   </div>
@@ -118,8 +123,16 @@
       <p>
         The workflow had to stay boring. People already know kanban; making
         them learn a new paradigm to get AI value is a tax most won't pay.
-        So the board itself is deliberately conventional, and the AI is a
-        <strong>single, optional action</strong> layered on top.
+        So the board itself is deliberately conventional, and the planning
+        layer — scoring, the matrix, ranked analysis, sprint plans — is
+        <strong>optional and summonable</strong>, never in the way of moving
+        a card.
+      </p>
+      <p>
+        Prioritization needed a framework, not vibes — but a cheap one.
+        Impact and effort (1–5 each) are the two fields a PM can score in
+        seconds and an AI can suggest defensibly; together they're enough to
+        drive the matrix, the value conversation, and the sprint budget.
       </p>
       <p>
         The second principle: the AI reads everything but writes nothing. It
@@ -139,9 +152,9 @@
 </section>
 
 <div class="wrap case-shot-full reveal">
-  <figure class="shot">
-    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — task detail</span></div>
-    <img src="assets/taskboard-modal.png" alt="Task detail modal displaying all the required fields" />
+  <figure class="shot shot-glow">
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — priority matrix</span></div>
+    <img src="assets/taskboard-matrix.png" alt="Priority Matrix: impact vs effort quadrants labeled Quick Wins, Big Bets, Fill-ins, Time Sinks, with labeled task dots, legend counts, and a needs-scoring strip" />
   </figure>
 </div>
 
@@ -173,6 +186,16 @@
         <h3>Completion nudges over automation</h3>
         <p>Auto-moving completed cards felt efficient and tested badly in my own use — state changing without consent erodes trust. The confirm-prompt pattern kept the speed and the control.</p>
       </article>
+      <article>
+        <span class="tag">Framework</span>
+        <h3>Impact/Effort over full RICE</h3>
+        <p>Reach and Confidence add ceremony without better decisions at this scale. Two fields keep scoring cheap enough to actually happen — and the matrix only needs two axes to force the trade-off conversation.</p>
+      </article>
+      <article>
+        <span class="tag">Trust</span>
+        <h3>Plans persist — and admit when they're stale</h3>
+        <p>Every analysis is stored with a fingerprint of the board it reasoned over. Move a card, change a score, tick a subtask — the plan flags itself stale and offers a one-click re-run. A plan that doesn't know it's outdated is worse than no plan.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -189,22 +212,22 @@
         <div class="arch">
           <article>
             <h3>React client</h3>
-            <p>Board, columns, card movement controls, task and subtask views, overdue computation.</p>
+            <p>Board, priority matrix, task and subtask views, backlog health, and the analysis panels — matrix rendered with plain positioned HTML, no chart libraries.</p>
           </article>
           <article>
             <h3>Auth &amp; PostgreSQL</h3>
-            <p>Per-user boards behind authentication; tasks, subtasks, and statuses persisted relationally.</p>
+            <p>Per-user boards behind row-level security; tasks carry status, priority, deadlines, subtasks, and impact/effort scores.</p>
           </article>
           <article>
             <h3>Serialization layer</h3>
-            <p>Board state compiled into a compact structured prompt: title, priority, status, due date, subtask ratio per task.</p>
+            <p>Board state compiled into a structured prompt: title, priority, status, due date with overdue flags, subtask ratio, and impact/effort quadrant per task.</p>
           </article>
           <article>
             <h3>Groq API inference</h3>
-            <p>Returns a ranked list with per-task rationale; response parsed and rendered as the AI Priority Analysis panel.</p>
+            <p>Strict-JSON outputs for three jobs — score suggestions, ranked analysis, and sprint plans — parsed and rendered with every item linked back to its source task. Plans persist per user with staleness detection.</p>
           </article>
         </div>
-        <p class="arch-note">flow: board state → serialize → rank with rationale → render → human moves the cards</p>
+        <p class="arch-note">flow: board state → serialize full signals → rank / plan with rationale → render → human moves the cards</p>
       </div>
     </div>
   </div>
@@ -227,8 +250,8 @@
         <div class="cost"><h4>Cost</h4><p>Won't scale past a few dozen tasks per call — fine for personal boards, a known rework item before team-scale use.</p></div>
       </article>
       <article>
-        <div class="chose"><h4>Chose</h4><p><strong>No drag-and-drop in v1</strong>; explicit move buttons instead.</p></div>
-        <div class="cost"><h4>Cost</h4><p>Less tactile. But it shipped a week earlier, works identically on mobile, and is fully keyboard-accessible by default.</p></div>
+        <div class="chose"><h4>Chose</h4><p><strong>A 1–5 integer scale</strong> for impact and effort over story points or t-shirt sizes.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Less granularity per task — accepted, because the matrix and the sprint budget need scores that are cheap to assign and comparable across the whole board. Consistency beats precision for portfolio-level decisions.</p></div>
       </article>
     </div>
   </div>
@@ -244,8 +267,18 @@
     <div class="gallery">
       <figure class="shot">
         <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — AI priority analysis</span></div>
-        <img src="assets/taskboard-analysis.png" alt="AI Priority Analysis panel: a ranked execution order across the board with reasoning per task" />
-        <figcaption>The AI Priority Analysis panel — a ranked execution order with reasoning, one click away from an otherwise conventional board.</figcaption>
+        <img src="assets/taskboard-analysis.png" alt="AI Priority Analysis panel: a do-first ranking with per-task reasoning and view-task links, plus an explicit can-wait list" />
+        <figcaption>AI Rank — a do-first order with the reasoning written out. Every recommendation links back to the task it came from.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — AI sprint plan</span></div>
+        <img src="assets/taskboard-sprint.png" alt="AI Sprint Plan panel: sprint goal, committed tasks with effort points against a capacity bar, explicit deferrals, and a risk callout" />
+        <figcaption>AI Sprint Plan — a committed set inside an effort-point budget, with what's deferred said out loud and the plan's biggest risk named.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — task detail</span></div>
+        <img src="assets/taskboard-modal.png" alt="Task detail modal with priority, due date, impact/effort scoring with a live Quick Win chip, AI suggest button, description, and subtasks" />
+        <figcaption>Task detail — impact/effort scoring with a live quadrant read, and an AI suggest that proposes scores the human can override.</figcaption>
       </figure>
       <figure class="shot">
         <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — subtask completion</span></div>
