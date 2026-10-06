@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pulse — AI Feedback Analysis · Case Study</title>
+<title>Pulse | AI Feedback Analysis · Case Study</title>
 <meta name="description" content="Case study: Pulse, a live AI-powered feedback analysis platform that turns raw user feedback into ranked product priorities." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +30,7 @@
 <section class="case-hero">
   <div class="wrap">
     <span class="eyebrow accent">Case study · 01</span>
-    <h1>Pulse — feedback in, priorities out.</h1>
+    <h1>Pulse - feedback in, priorities out.</h1>
     <p class="lede">
       A live AI-powered feedback intelligence platform that collects user
       feedback, classifies it with AI, tracks how sentiment and categories
@@ -44,7 +44,7 @@
       <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
       <div><dt>Type</dt><dd>AI feedback intelligence</dd></div>
       <div><dt>Stack</dt><dd>React · PostgreSQL · Groq API</dd></div>
-      <div><dt>Status</dt><dd>Live — open to try</dd></div>
+      <div><dt>Status</dt><dd>Live - open to try</dd></div>
     </dl>
   </div>
 </section>
@@ -67,10 +67,10 @@
       <p>
         Pulse is a feedback tracker with an intelligence layer on top.
         Feedback arrives from app reviews, support tickets, and surveys;
-        each item is classified with AI assistance — sentiment, category,
+        each item is classified with AI assistance into sentiment, category,
         and a suggested title the PM confirms or overrides. The dashboard
-        shows the live shape of the feedback — sentiment split, category
-        breakdown, open vs. addressed — an Insights view tracks how that
+        shows the live shape of the feedback: sentiment split, category
+        breakdown, open vs. addressed. An Insights view tracks how that
         shape moves week over week, and an AI analysis turns it into a
         ranked, reasoned priority list.
       </p>
@@ -95,7 +95,7 @@
       <p>
         Raw feedback is high-volume, mixed-sentiment, and unevenly important.
         A crash report, a feature request from an enterprise customer, and a
-        vague complaint about onboarding all land in the same inbox — and the
+        vague complaint about onboarding all land in the same inbox and the
         loudest item wins, not the most important one.
       </p>
       <div class="pull">
@@ -103,8 +103,8 @@
         about it, and in what order."
       </div>
       <p>
-        Existing tools solved collection and tagging. The decision step —
-        weighing impact, urgency, and frequency across items — stayed manual,
+        Existing tools solved collection and tagging. The decision step
+        weighing impact, urgency, and frequency across items stayed manual,
         slow, and dependent on whoever ran the spreadsheet.
       </p>
     </div>
@@ -133,7 +133,7 @@
       </p>
       <p>
         Crucially, the AI output is split into <strong>"prioritize
-        first"</strong> and <strong>"can wait"</strong> — with a written
+        first"</strong> and <strong>"can wait"</strong>, with a written
         rationale per item. A ranking without reasons is a black box; a
         ranking with reasons is a conversation starter for the team.
       </p>
@@ -143,7 +143,7 @@
 
 <div class="wrap case-shot-full reveal">
   <figure class="shot">
-    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — AI analysis</span></div>
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse | AI analysis</span></div>
     <img src="../assets/pulse-analysis.png" alt="Pulse AI analysis: ranked prioritize-first items with written rationale, a can-wait group, and high/medium pain points" />
   </figure>
 </div>
@@ -209,7 +209,7 @@
           </article>
           <article>
             <h3>Analytics layer</h3>
-            <p>Weekly sentiment and category trends, resolution metrics, and rule-based signals — computed live, no chart libraries, no warehouse.</p>
+            <p>Weekly sentiment and category trends, resolution metrics, and rule-based signals computed live, no chart libraries, no warehouse.</p>
           </article>
         </div>
         <p class="arch-note">flow: ingest → classify → store → aggregate → analyze → rank</p>
@@ -228,15 +228,15 @@
     <div class="tradeoffs">
       <article>
         <div class="chose"><h4>Chose</h4><p><strong>On-demand analysis</strong> instead of continuous re-ranking on every new item.</p></div>
-        <div class="cost"><h4>Cost</h4><p>The dashboard can briefly lag reality — accepted, because triage is a cadence ritual, not a real-time feed, and it cuts inference cost sharply.</p></div>
+        <div class="cost"><h4>Cost</h4><p>The dashboard can briefly lag reality accepted, because triage is a cadence ritual, not a real-time feed, and it cuts inference cost sharply.</p></div>
       </article>
       <article>
         <div class="chose"><h4>Chose</h4><p><strong>Fixed category taxonomy</strong> (UX, performance, bug, feature request, other) over model-generated categories.</p></div>
-        <div class="cost"><h4>Cost</h4><p>Less nuance per item, but breakdowns stay comparable week over week — consistency beats cleverness for trend data.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Less nuance per item, but breakdowns stay comparable week over week, consistency beats cleverness for trend data.</p></div>
       </article>
       <article>
         <div class="chose"><h4>Chose</h4><p><strong>AI recommends, human decides.</strong> The model never changes a status or closes an item.</p></div>
-        <div class="cost"><h4>Cost</h4><p>One extra click per action — a price worth paying to keep accountability with the PM and trust in the tool.</p></div>
+        <div class="cost"><h4>Cost</h4><p>One extra click per action, a price worth paying to keep accountability with the PM and trust in the tool.</p></div>
       </article>
     </div>
   </div>
@@ -251,12 +251,12 @@
     </div>
     <div class="gallery">
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — insights</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse insights</span></div>
         <img src="../assets/pulse-insights.png" alt="Pulse Insights view: KPI row, auto-generated risk/win/watch signals, weekly sentiment trend chart, feedback volume, and category mix" />
         <figcaption>Insights — resolution KPIs, auto-generated signals, and week-over-week sentiment, volume, and category trends.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse — feedback detail</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">pulse feedback detail</span></div>
         <img src="../assets/pulse-detail.png" alt="Feedback detail view with sentiment and category tags, description, and a status switcher" />
         <figcaption>Item detail — sentiment, category, source, and status transitions in one editable view.</figcaption>
       </figure>
