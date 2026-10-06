@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Task Board — AI Product Planning · Case Study</title>
-<meta name="description" content="Case study: Task Board, a live AI-powered product planning tool — impact/effort scoring, a priority matrix, ranked AI analysis, and capacity-based sprint planning." />
+<title>Task Board | AI Product Planning · Case Study</title>
+<meta name="description" content="Case study: Task Board, a live AI-powered product planning tool: impact/effort scoring, a priority matrix, ranked AI analysis, and capacity-based sprint planning." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -30,11 +30,11 @@
 <section class="case-hero">
   <div class="wrap">
     <span class="eyebrow accent">Case study · 02</span>
-    <h1>Task Board — a kanban with an opinion.</h1>
+    <h1>Task Board: A kanban with an opinion.</h1>
     <p class="lede">
       A live product planning tool where every task carries an impact/effort
       score, a priority matrix shows where the leverage is, and one click gets
-      a ranked plan — or a capacity-budgeted sprint — with the reasoning
+      a ranked plan or a capacity-budgeted sprint, with the reasoning
       written out, so you can disagree with it intelligently.
     </p>
     <div class="btn-row" style="margin-top:30px;">
@@ -44,7 +44,7 @@
       <div><dt>Role</dt><dd>Product, design &amp; build</dd></div>
       <div><dt>Type</dt><dd>AI product planning</dd></div>
       <div><dt>Stack</dt><dd>React · PostgreSQL · Groq API</dd></div>
-      <div><dt>Status</dt><dd>Live — open to try</dd></div>
+      <div><dt>Status</dt><dd>Live open to try</dd></div>
     </dl>
   </div>
 </section>
@@ -65,19 +65,19 @@
     </div>
     <div class="case-body">
       <p>
-        Task Board starts as a familiar three-column kanban — and grows into a
+        Task Board starts as a familiar three-column kanban and grows into a
         planning platform. Every task carries an <strong>impact and effort
         score</strong> (set by hand, or suggested by AI with a rationale); a
         <strong>Priority Matrix</strong> plots the active board into Quick
         Wins, Big Bets, Fill-ins, and Time Sinks; <strong>AI Rank</strong>
-        reads every signal — status, priority, deadlines, subtask progress,
-        scores — and returns a do-first order with a reason per task; and
+        reads every signal status, priority, deadlines, subtask progress,
+        scores and returns a do-first order with a reason per task; and
         <strong>AI Sprint Plan</strong> commits work against an effort-point
         capacity budget, saying out loud what's deferred and why.
       </p>
       <p>
         It's built to answer the question a PM faces every morning: of
-        everything on this board, what actually deserves the team's time —
+        everything on this board, what actually deserves the team's time
         and what should we say no to?
       </p>
     </div>
@@ -98,7 +98,7 @@
         here, what do I do <strong>right now</strong>?
       </p>
       <p>
-        Answering that requires weighing several signals at once — priority
+        Answering that requires weighing several signals at once: priority
         labels, due dates, what's overdue, what's already mid-flight, how much
         of each task is done. Humans do this constantly and inconsistently;
         it's exactly the kind of bounded, multi-factor judgment an AI model can
@@ -124,12 +124,12 @@
         The workflow had to stay boring. People already know kanban; making
         them learn a new paradigm to get AI value is a tax most won't pay.
         So the board itself is deliberately conventional, and the planning
-        layer — scoring, the matrix, ranked analysis, sprint plans — is
+        layer scoring, the matrix, ranked analysis, sprint plans is
         <strong>optional and summonable</strong>, never in the way of moving
         a card.
       </p>
       <p>
-        Prioritization needed a framework, not vibes — but a cheap one.
+        Prioritization needed a framework, not vibes, but a cheap one.
         Impact and effort (1–5 each) are the two fields a PM can score in
         seconds and an AI can suggest defensibly; together they're enough to
         drive the matrix, the value conversation, and the sprint budget.
@@ -137,8 +137,8 @@
       <p>
         The second principle: the AI reads everything but writes nothing. It
         ranks and explains; the user moves cards. Small contextual nudges close
-        the loop instead — when every subtask on a card is checked, the product
-        asks one question: <strong>"All subtasks complete — mark task as
+        the loop instead when every subtask on a card is checked, the product
+        asks one question: <strong>"All subtasks complete, mark task as
         Done?"</strong> One tap, user in control.
       </p>
       <p>
@@ -153,7 +153,7 @@
 
 <div class="wrap case-shot-full reveal">
   <figure class="shot shot-glow">
-    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — priority matrix</span></div>
+    <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board - priority matrix</span></div>
     <img src="../assets/taskboard-matrix.png" alt="Priority Matrix: impact vs effort quadrants labeled Quick Wins, Big Bets, Fill-ins, Time Sinks, with labeled task dots, legend counts, and a needs-scoring strip" />
   </figure>
 </div>
@@ -169,12 +169,12 @@
       <article>
         <span class="tag">Model</span>
         <h3>Fast inference over frontier reasoning</h3>
-        <p>Ranking a bounded set of structured tasks doesn't need a frontier model. Serving a lightweight model through the Groq API keeps the feature near-instant and near-free — and proved that careful input structure matters more than model size for this class of task.</p>
+        <p>Ranking a bounded set of structured tasks doesn't need a frontier model. Serving a lightweight model through the Groq API keeps the feature near-instant and near-free and proved that careful input structure matters more than model size for this class of task.</p>
       </article>
       <article>
         <span class="tag">UX</span>
         <h3>Reasoning shown in full, per task</h3>
-        <p>The analysis panel doesn't output "1, 2, 3, 4." Each rank carries its why — overdue status, priority, distance to deadline. Users calibrate trust by checking the reasoning against their own.</p>
+        <p>The analysis panel doesn't output "1, 2, 3, 4." Each rank carries its why; overdue status, priority, distance to deadline. Users calibrate trust by checking the reasoning against their own.</p>
       </article>
       <article>
         <span class="tag">Interaction</span>
@@ -184,17 +184,17 @@
       <article>
         <span class="tag">Detail</span>
         <h3>Completion nudges over automation</h3>
-        <p>Auto-moving completed cards felt efficient and tested badly in my own use — state changing without consent erodes trust. The confirm-prompt pattern kept the speed and the control.</p>
+        <p>Auto-moving completed cards felt efficient and tested badly in my own use state changing without consent erodes trust. The confirm-prompt pattern kept the speed and the control.</p>
       </article>
       <article>
         <span class="tag">Framework</span>
         <h3>Impact/Effort over full RICE</h3>
-        <p>Reach and Confidence add ceremony without better decisions at this scale. Two fields keep scoring cheap enough to actually happen — and the matrix only needs two axes to force the trade-off conversation.</p>
+        <p>Reach and Confidence add ceremony without better decisions at this scale. Two fields keep scoring cheap enough to actually happen and the matrix only needs two axes to force the trade-off conversation.</p>
       </article>
       <article>
         <span class="tag">Trust</span>
-        <h3>Plans persist — and admit when they're stale</h3>
-        <p>Every analysis is stored with a fingerprint of the board it reasoned over. Move a card, change a score, tick a subtask — the plan flags itself stale and offers a one-click re-run. A plan that doesn't know it's outdated is worse than no plan.</p>
+        <h3>Plans persist and admit when they're stale</h3>
+        <p>Every analysis is stored with a fingerprint of the board it reasoned over. Move a card, change a score, tick a subtask and the plan flags itself stale and offers a one-click re-run. A plan that doesn't know it's outdated is worse than no plan.</p>
       </article>
     </div>
   </div>
@@ -212,7 +212,7 @@
         <div class="arch">
           <article>
             <h3>React client</h3>
-            <p>Board, priority matrix, task and subtask views, backlog health, and the analysis panels — matrix rendered with plain positioned HTML, no chart libraries.</p>
+            <p>Board, priority matrix, task and subtask views, backlog health, and the analysis panels matrix rendered with plain positioned HTML, no chart libraries.</p>
           </article>
           <article>
             <h3>Auth &amp; PostgreSQL</h3>
@@ -224,7 +224,7 @@
           </article>
           <article>
             <h3>Groq API inference</h3>
-            <p>Strict-JSON outputs for three jobs — score suggestions, ranked analysis, and sprint plans — parsed and rendered with every item linked back to its source task. Plans persist per user with staleness detection.</p>
+            <p>Strict-JSON outputs for three jobs score suggestions, ranked analysis, and sprint plans parsed and rendered with every item linked back to its source task. Plans persist per user with staleness detection.</p>
           </article>
         </div>
         <p class="arch-note">flow: board state → serialize full signals → rank / plan with rationale → render → human moves the cards</p>
@@ -247,11 +247,11 @@
       </article>
       <article>
         <div class="chose"><h4>Chose</h4><p><strong>Whole-board analysis</strong> instead of per-task scoring.</p></div>
-        <div class="cost"><h4>Cost</h4><p>Won't scale past a few dozen tasks per call — fine for personal boards, a known rework item before team-scale use.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Won't scale past a few dozen tasks per call, fine for personal boards, a known rework item before team-scale use.</p></div>
       </article>
       <article>
         <div class="chose"><h4>Chose</h4><p><strong>A 1–5 integer scale</strong> for impact and effort over story points or t-shirt sizes.</p></div>
-        <div class="cost"><h4>Cost</h4><p>Less granularity per task — accepted, because the matrix and the sprint budget need scores that are cheap to assign and comparable across the whole board. Consistency beats precision for portfolio-level decisions.</p></div>
+        <div class="cost"><h4>Cost</h4><p>Less granularity per task accepted, because the matrix and the sprint budget need scores that are cheap to assign and comparable across the whole board. Consistency beats precision for portfolio-level decisions.</p></div>
       </article>
     </div>
   </div>
@@ -266,24 +266,24 @@
     </div>
     <div class="gallery">
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — AI priority analysis</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board | AI priority analysis</span></div>
         <img src="../assets/taskboard-analysis.png" alt="AI Priority Analysis panel: a do-first ranking with per-task reasoning and view-task links, plus an explicit can-wait list" />
-        <figcaption>AI Rank — a do-first order with the reasoning written out. Every recommendation links back to the task it came from.</figcaption>
+        <figcaption>AI Rank: a do-first order with the reasoning written out. Every recommendation links back to the task it came from.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — AI sprint plan</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board | AI sprint plan</span></div>
         <img src="../assets/taskboard-sprint.png" alt="AI Sprint Plan panel: sprint goal, committed tasks with effort points against a capacity bar, explicit deferrals, and a risk callout" />
-        <figcaption>AI Sprint Plan — a committed set inside an effort-point budget, with what's deferred said out loud and the plan's biggest risk named.</figcaption>
+        <figcaption>AI Sprint Plan: a committed set inside an effort-point budget, with what's deferred said out loud and the plan's biggest risk named.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — task detail</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board | task detail</span></div>
         <img src="../assets/taskboard-modal.png" alt="Task detail modal with priority, due date, impact/effort scoring with a live Quick Win chip, AI suggest button, description, and subtasks" />
-        <figcaption>Task detail — impact/effort scoring with a live quadrant read, and an AI suggest that proposes scores the human can override.</figcaption>
+        <figcaption>Task detail | impact/effort scoring with a live quadrant read, and an AI suggest that proposes scores the human can override.</figcaption>
       </figure>
       <figure class="shot">
-        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board — subtask completion</span></div>
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">task board | subtask completion</span></div>
         <img src="../assets/taskboard-checklist.png" alt="Task editing modal showing completed subtasks, progress bar at 2/2, and a move-to-done suggestion" />
-        <figcaption>Completion nudge — when subtasks hit 2/2, the product offers the next step instead of taking it.</figcaption>
+        <figcaption>Completion nudge when subtasks hit 2/2, the product offers the next step instead of taking it.</figcaption>
       </figure>
     </div>
   </div>
@@ -303,7 +303,7 @@
       </article>
       <article>
         <h3>AI features should be summonable, not ambient</h3>
-        <p>The on-demand pattern made the feature feel like a tool rather than a surveillance layer. Users — starting with me — used it more because it ran less.</p>
+        <p>The on-demand pattern made the feature feel like a tool rather than a surveillance layer. Users starting with me used it more because it ran less.</p>
       </article>
       <article>
         <h3>Boring workflows are the best AI delivery vehicle</h3>
@@ -319,7 +319,7 @@
     <div class="next-case reveal">
       <div>
         <span class="eyebrow">Next case study</span>
-        <h2 style="margin-top:8px;">Pulse — AI feedback analysis</h2>
+        <h2 style="margin-top:8px;">Pulse | AI feedback analysis</h2>
         <p>Feedback in, ranked priorities out.</p>
       </div>
       <a class="btn btn-primary" href="/case-studies/pulse">Read case study <span class="arrow">→</span></a>
@@ -331,7 +331,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span>© 2026 Darshan R. — Product Manager</span>
+    <span>© 2026 Darshan R | Product Manager</span>
     <nav class="footer-links" aria-label="Footer">
       <a href="../index.html">Home</a>
       <a href="/case-studies/pulse">Pulse</a>
