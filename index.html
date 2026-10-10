@@ -25,6 +25,22 @@
 .hero h1 { max-width: 16ch; }
 .hero .lede { margin-top: 28px; }
 .hero .btn-row { margin-top: 38px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 64px;
+  align-items: center;
+}
+.hero-portrait {
+  width: clamp(220px, 26vw, 320px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-raised);
+  box-shadow: 0 24px 64px -24px rgba(0, 0, 0, 0.7), 0 0 90px -30px var(--accent-dim);
+}
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 
 /* featured products */
 .product-card {
@@ -108,7 +124,7 @@
 .product-shot .shot { border-bottom: none; border-radius: 12px 12px 0 0; }
 .product-shot .shot-bar { border-radius: 12px 12px 0 0; }
 
-.product-card.secondary { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; }
+.product-card.secondary { display: grid; grid-template-columns: 1fr 1.25fr; align-items: center; }
 .product-card.secondary .product-body { padding: 48px; }
 .product-card.secondary .product-shot { padding: 48px 0 48px 0; }
 .product-card.secondary .shot { border-radius: 12px 0 0 12px; border-right: none; border-bottom: 1px solid var(--border-strong); }
@@ -191,6 +207,8 @@
 }
 
 @media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-portrait { order: -1; width: 180px; }
   .work-grid { grid-template-columns: 1fr; }
   .exp { grid-template-columns: 1fr; gap: 48px; }
   .exp-figure { position: static; }
@@ -228,18 +246,25 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow accent">Open to remote product manager roles</span>
-    <h1 class="display reveal in">
-      Product <span class="mark">Builder</span>
-    </h1>
-    <p class="lede reveal in">
-      I design, build, and ship AI products end to end. Before that, I managed
-      custom software delivery from requirements to release, so I scope with
-      engineering cost in mind and test product ideas by building them
-      instead of writing about them.
-    </p>
-    <div class="btn-row reveal in">
-      <a class="btn btn-primary" href="#work">View work <span class="arrow">→</span></a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow accent">Open to remote product manager roles</span>
+        <h1 class="display reveal in">
+          Product <span class="mark">Builder</span>
+        </h1>
+        <p class="lede reveal in">
+          I design, build, and ship AI products end to end. Before that, I managed
+          custom software delivery from requirements to release, so I scope with
+          engineering cost in mind and test product ideas by building them
+          instead of writing about them.
+        </p>
+        <div class="btn-row reveal in">
+          <a class="btn btn-primary" href="#work">View work <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <figure class="hero-portrait reveal in">
+        <img src="assets/portrait.jpg" width="640" height="640" alt="Portrait of Darshan R." fetchpriority="high" />
+      </figure>
     </div>
   </div>
 </section>
@@ -294,8 +319,8 @@
     <article class="product-card secondary reveal">
       <div class="product-shot">
         <figure class="shot">
-          <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">Task Board | priority matrix</span></div>
-          <img src="assets/taskboard-matrix.png" alt="Task Board priority matrix plotting tasks by impact and effort into Quick Wins, Big Bets, Fill-ins, and Time Sinks" />
+          <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span class="shot-url">Task Board | board</span></div>
+          <img src="assets/taskboard-board-crop.png" width="1140" height="890" alt="Task Board kanban with backlog health chips, Board and Priority Matrix tabs, and To Do, In Progress, and Done columns with impact/effort chips on each card" loading="lazy" />
         </figure>
       </div>
       <div class="product-body">
