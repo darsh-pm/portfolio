@@ -217,7 +217,7 @@ section { padding: 110px 0; }
   color: var(--text-3);
 }
 
-.shot img { width: 100%; }
+.shot img { width: 100%; height: auto; }
 
 .shot-glow { position: relative; }
 .shot-glow::before {
